@@ -63,7 +63,7 @@ But you can pass options in by using the autosuggest_options param
 
     f.autosuggest_field :tags, autosuggest_tag_name_recipes_path, :autosuggest_options => {"neverSubmit" => "true"}
 
-Here are the other options you can pass in (pasted from http://code.drewwilson.com/entry/autosuggest-jquery-plugin):
+Here are the other options you can pass in - pasted from http://code.drewwilson.com/entry/autosuggest-jquery-plugin
 
 **asHtmlID:** string (false by default) - Enables you to specify your own custom ID that will be appended to the top level AutoSuggest UL element's ID name. Otherwise it will default to using a random ID. Example: id="CUSTOM_ID". This is also applies to the hidden input filed that holds all of the selected values. Example: id="as-values-CUSTOM_ID"
 

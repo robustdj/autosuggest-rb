@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "autosuggest/version"
 
 Gem::Specification.new do |s|
-  s.name        = "autosuggest"
+  s.name        = "autosuggest-rb"
   s.version     = Autosuggest::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Derrick Camerino"]
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{This is a gem that wraps the AutoSuggest javascript plugin}
   s.description = %q{This is a gem that wraps the AutoSuggest javascript plugin}
 
-  s.rubyforge_project = "autosuggest"
+  s.rubyforge_project = "autosuggest-rb"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

@@ -1,4 +1,4 @@
-# autosuggest
+# autosuggest-rb
 
 ## Installing
 
@@ -53,6 +53,7 @@ From the view you can create the autosuggest field like this:
     end
 
 These are the default options:
+
     "selectedItemProp" => "name",
     "searchObjProps" => "name",
     "neverSubmit" => "true",

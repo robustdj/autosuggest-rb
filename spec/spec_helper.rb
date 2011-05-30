@@ -2,7 +2,7 @@ ENV['RAILS_ENV'] ||= 'test'
 
 require 'rails/all'
 require 'rspec/rails'
-require 'autosuggest'
+require 'autosuggest-rb'
 require 'ruby-debug'
 
 Dir["#{File.dirname(__FILE__)}/support/*.rb"].each { |f| require f }
@@ -13,5 +13,5 @@ end
 
 Ingredient = Class.new
 IngredientsController = Class.new(ActionController::Base)
-IngredientsController.autosuggest(:ingredients, :name)
+IngredientsController.autosuggest(:ingredient, :name)
 

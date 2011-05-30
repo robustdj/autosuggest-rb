@@ -17,7 +17,7 @@ Run the generator
 And include jquery.autoSuggest.js and autoSuggest.css on your layouts
 
     javascript_include_tag "jquery.autoSuggest.js"
-    stylsheet_link_tag "autoSuggest.css"
+    stylesheet_link_tag "autoSuggest.css"
 
 ## Usage
 
@@ -52,6 +52,13 @@ From the view you can create the autosuggest field like this:
       f.autosuggest_field :tags, autosuggest_tag_name_recipes_path
     end
 
+By default, autosuggest only queries the db for existing tags, but if you want to be able to create new ones, just pass these options:
+
+    f.autosuggest_field :tags, autosuggest_tag_name_recipes_path, :autosuggest_options => { "newValuesInputName" => recipes[new_tags]" }
+
+Then you can do whatever you want from the controller using params[:recipes][:new_tags]
+
+
 These are the default options:
 
     "selectedItemProp" => "name",
@@ -64,6 +71,10 @@ But you can pass options in by using the autosuggest_options param
     f.autosuggest_field :tags, autosuggest_tag_name_recipes_path, :autosuggest_options => {"neverSubmit" => "true"}
 
 Here are the other options you can pass in - pasted from http://code.drewwilson.com/entry/autosuggest-jquery-plugin
+
+**asHtmlName:** string (false by default) - Enables you to specify your own custom name that will be attributed to the text field
+
+**newValuesInputName:** string (false by default) - Enables you to define a name for a hidden field that will catch new names that don't match any in the db
 
 **asHtmlID:** string (false by default) - Enables you to specify your own custom ID that will be appended to the top level AutoSuggest UL element's ID name. Otherwise it will default to using a random ID. Example: id="CUSTOM_ID". This is also applies to the hidden input filed that holds all of the selected values. Example: id="as-values-CUSTOM_ID"
 

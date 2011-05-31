@@ -61,6 +61,7 @@ Then you can do whatever you want from the controller using params[:recipes][:ne
 
 These are the default options:
 
+    "queryParam" => "query",
     "selectedItemProp" => "name",
     "searchObjProps" => "name",
     "neverSubmit" => "true",

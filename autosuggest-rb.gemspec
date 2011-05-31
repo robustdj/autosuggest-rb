@@ -19,9 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency('sqlite3-ruby')
   s.add_development_dependency('shoulda', '2.11.3')
-  s.add_development_dependency('redgreen')
   s.add_development_dependency('ruby-debug19')
-  s.add_development_dependency('mocha')
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

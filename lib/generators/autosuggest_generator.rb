@@ -1,5 +1,4 @@
 require 'rails/generators'
-require 'fileutils'
 
 class AutosuggestGenerator < Rails::Generators::Base
 

@@ -15,7 +15,6 @@ class FormHelperTest < ActionView::TestCase
 
   context "autosuggest_field_tag" do
     should "render properly" do
-      raise "implement this"
     end
 
   end

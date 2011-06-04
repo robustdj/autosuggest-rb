@@ -1,5 +1,9 @@
 # autosuggest-rb
 
+## Summary
+
+This gem wraps the jQuery autoSuggest plugin and provides helpers to make it easy to use in rails. It supports ActiveRecord, Mongoid, and MongoMapper. This was influenced by crowdint's rails3-jquery-autocomplete gem.
+
 ## Installing
 
 Include the gem on your Gemfile

@@ -146,7 +146,7 @@ Derrick Camerino http://programifications.com
 
 ## Contributing
 
-Pull requests are very welcome! Make sure your patches unit tested. Please do not change the version in your pull-request.
+Pull requests are very welcome! Make sure your patches are unit tested. Please do not change the version in your pull-request.
 
 ## Copyright
 

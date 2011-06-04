@@ -1,12 +1,12 @@
 module Autosuggest
   module TestCase
-    module ActiveRecord
+    module Mongoid
       def setup
-        ::ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database => ":memory:")
-        ::ActiveRecord::Schema.define(:version => 1) do
-          create_table :tags do |t|
-            t.string :name
-          end
+        ::Mongoid.configure do |config|
+          name = "autosuggest-rb"
+          host = "localhost"
+          config.master = Mongo::Connection.new.db(name)
+          config.logger = nil
         end
 
         create_models
@@ -16,14 +16,14 @@ module Autosuggest
 
       def teardown
         destroy_models
-        ::ActiveRecord::Base.connection.tables.each do |table|
-          ::ActiveRecord::Base.connection.drop_table(table)
-        end
+        ::Mongoid.master.collections.select {|c| c.name !~ /system/ }.each(&:drop)
       end
 
       private
       def create_models
-        @tag_class = Object.const_set(:Tag, Class.new(::ActiveRecord::Base))
+        @tag_class = Object.const_set(:Tag, Class.new)
+        @tag_class.send(:include, ::Mongoid::Document)
+        @tag_class.field(:name, :class => String)
         @tag_class.class_eval do
           def display_name
             "Tag: #{name}"

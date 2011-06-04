@@ -17,9 +17,12 @@ Gem::Specification.new do |s|
   s.add_dependency('rails', '~>3.0')
   s.add_dependency('yajl-ruby')
 
-  s.add_development_dependency('sqlite3-ruby')
+  s.add_development_dependency('sqlite3-ruby', '1.3.3')
   s.add_development_dependency('shoulda', '2.11.3')
   s.add_development_dependency('ruby-debug19')
+  s.add_development_dependency('mongoid', '2.0.2')
+  s.add_development_dependency('mongo_mapper', '0.9.1')
+  s.add_development_dependency('bson_ext', '1.3.1')
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

@@ -1,13 +1,9 @@
 module Autosuggest
   module TestCase
-    module ActiveRecord
+    module MongoMapper
       def setup
-        ::ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database => ":memory:")
-        ::ActiveRecord::Schema.define(:version => 1) do
-          create_table :tags do |t|
-            t.string :name
-          end
-        end
+        ::MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
+        ::MongoMapper.database = "autosuggest-rb"
 
         create_models
 
@@ -16,14 +12,14 @@ module Autosuggest
 
       def teardown
         destroy_models
-        ::ActiveRecord::Base.connection.tables.each do |table|
-          ::ActiveRecord::Base.connection.drop_table(table)
-        end
+        ::MongoMapper.database.collections.select {|c| c.name !~ /system/ }.each(&:drop)
       end
 
       private
       def create_models
-        @tag_class = Object.const_set(:Tag, Class.new(::ActiveRecord::Base))
+        @tag_class = Object.const_set(:Tag, Class.new)
+        @tag_class.send(:include, ::MongoMapper::Document)
+        @tag_class.key(:name, :class => String)
         @tag_class.class_eval do
           def display_name
             "Tag: #{name}"

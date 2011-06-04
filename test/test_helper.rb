@@ -3,6 +3,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'rubygems'
 require 'bundler/setup'
 require 'rails/all'
+require 'mongoid'
+require 'mongo_mapper'
 require 'rails/test_help'
 require 'autosuggest-rb'
 require 'ruby-debug'
@@ -22,7 +24,6 @@ end
 
 ActionController::Base.send :include, Autosuggest::Application.routes.url_helpers
 
-Ingredient = Class.new
 RecipesController = Class.new(ActionController::Base)
 RecipesController.autosuggest(:tag, :name)
 

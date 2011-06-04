@@ -12,9 +12,14 @@ module Autosuggest
       limit        = options[:limit] || 10
       like_clause  = defined?(PGconn) ? 'ILIKE' : 'LIKE'
 
+      options[:display]     ||= name
+      options[:order]       ||= "#{name} ASC"
+      options[:limit]       ||= 10
+      options[:like_clause]   = defined?(PGconn) ? 'ILIKE' : 'LIKE'
+      options[:name]          = name
+
       define_method "autosuggest_#{object}_#{name}" do
-        # assuming an ActiveRecord mysql backed model for right now
-        results = objectify(object).where("#{name} #{like_clause} ?", "%#{params[:query]}%").order(order).limit(limit)
+        results = db_store(object).query(options.merge(:query => params[:query], :object => objectify(object)))
         render :json => Yajl::Encoder.encode(results.map{|r| {:name => r.send(display_name), :value => r.id}})
       end
     end

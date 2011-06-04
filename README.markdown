@@ -140,4 +140,16 @@ Example: resultClick: function(data){ console.log(data); }
 **resultsComplete:** callback function - Custom function that is run when the suggestion results dropdown list is made visible. Will run after every search query.
 
 
+## Author
+
+Derrick Camerino http://programifications.com
+
+## Contributing
+
+Pull requests are very welcome! Make sure your patches unit tested. Please do not change the version in your pull-request.
+
+## Copyright
+
+Copyright (c) 2009 Derrick Camerino. See LICENSE for details.
+
 

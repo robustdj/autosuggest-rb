@@ -38,7 +38,7 @@ Assuming you have a Tag model:
 
 ### Controller
 
-Your conotroller will need an action to respond to the autosuggest textfield. To add it to your controller call the autosuggest method and pass it the name of the model and column name as in the following example:
+Your controller will need an action to respond to the autosuggest textfield. To add it to your controller call the autosuggest method and pass it the name of the model and column name as in the following example:
 
     class RecipesController < ApplicationController
       autosuggest :tag, :name
@@ -75,7 +75,8 @@ But you can pass options in by using the autosuggest_options param
 
     f.autosuggest_field :tags, autosuggest_tag_name_recipes_path, :autosuggest_options => {"neverSubmit" => "true"}
 
-Here are the other options you can pass in - pasted from http://code.drewwilson.com/entry/autosuggest-jquery-plugin
+
+Here are the other options you can pass in:
 
 **asHtmlName:** string (false by default) - Enables you to specify your own custom name that will be attributed to the text field
 

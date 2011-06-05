@@ -53,5 +53,9 @@ module Autosuggest
         raise 'Database Store not supported'
       end
     end
+
+    def resolve_like_clause
+      defined?(PGconn) ? 'ILIKE' : 'LIKE'
+    end
   end
 end

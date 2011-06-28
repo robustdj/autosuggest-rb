@@ -15,7 +15,7 @@ module Autosuggest
       define_method "autosuggest_#{object}_#{name}" do
         options.merge!(:query => params[:query], :object => objectify(object), :like_clause => resolve_like_clause)
         results = db_store(object).query(options)
-        render :json => Yajl::Encoder.encode(results.map{|r| {:name => r.send(options[:display]), :value => r.id}})
+        render :json => Yajl::Encoder.encode(results.map{|r| {:name => r.send(options[:display]), :value => r.id.to_s}})
       end
     end
   end

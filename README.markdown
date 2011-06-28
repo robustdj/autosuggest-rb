@@ -75,6 +75,7 @@ But you can pass options in by using the autosuggest_options param
 
     f.autosuggest_field :tags, autosuggest_tag_name_recipes_path, :autosuggest_options => {"neverSubmit" => "true"}
 
+NOTE: When using the preFill option, make sure to pass in a ruby hash and not a json string
 
 Here are the other options you can pass in:
 
@@ -155,6 +156,6 @@ Pull requests are very welcome! Make sure your patches are unit tested. Please d
 
 ## Copyright
 
-Copyright (c) 2009 Derrick Camerino. See LICENSE for details.
+Copyright (c) 2011 Derrick Camerino. See LICENSE for details.
 
 
